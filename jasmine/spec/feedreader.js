@@ -63,10 +63,10 @@ $(function() {
             expect($('body').hasClass('menu-hidden')).toEqual(true);
         });
 
-        /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+        /* Test that ensures the menu changes visibility when the menu
+          * icon is clicked. This test should have two expectations:
+          * does the menu display when clicked and does it hide when
+          * clicked again.
           */
         it('changes visibility on clicks', function() {
 //            var menuXaxis = $('.slide-menu')[0].getBoundingClientRect().x;
@@ -82,14 +82,20 @@ $(function() {
         });
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
-
-    /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
+    /* Test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
+        /* Test that ensures when the loadFeed function is called and
+         * completes its work, there is at least a single .entry element
+         * within the .feed container.
          */
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
+
+        it('have at least a single .entry element', function() {
+            expect($('.feed').find('.entry').length).not.toBe(0);
+        });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
