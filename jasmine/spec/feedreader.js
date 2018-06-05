@@ -4,22 +4,13 @@
  * all of the tests that will be run against your application.
  */
 
-/* We're placing all of our tests within the $() function,
- * since some of these tests may require DOM elements. We want
- * to ensure they don't run until the DOM is ready.
- */
 $(function() {
-    /* This is our first test suite - a test suite just contains
-    * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
-    */
+    /* This suite is all about the RSS feeds definitions,
+     * the allFeeds variable in our application.
+     */
     describe('RSS Feeds', function() {
-        /* This is our first test - it tests to make sure that the
-         * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
+        /* Test to make sure that the allFeeds variable has been
+         * defined and that it is not empty.
          */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
@@ -69,16 +60,13 @@ $(function() {
           * clicked again.
           */
         it('changes visibility on clicks', function() {
-//            var menuXaxis = $('.slide-menu')[0].getBoundingClientRect().x;
-            
             //Open the menu
             $('.menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBeFalsy();
-//            expect(menuXaxis).toBe(0);  //why this isn't working?
+
             //Hide the menu
             $('.menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBeTruthy();
-//            expect(menuXaxis).not.toBe(0);
         });
     });
 
